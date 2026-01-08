@@ -1,16 +1,18 @@
 import { useRef, useState } from "react";
 import LoginIcon from '@mui/icons-material/Login';
+import CancelIcon from '@mui/icons-material/Cancel';
 import axios from "axios";
+import "./Login.css"
 
-function Login() {
+function Login({ setShowLogin }: any) {
     const [error, setError] = useState(false);
 
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef();
+    const passwordRef = useRef();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('handleSubmit');
+
         const user = {
             email: emailRef.current ? emailRef.current.value : "",
             password: passwordRef.current ? passwordRef.current.value : ""
@@ -41,7 +43,9 @@ function Login() {
                     ref={passwordRef}
                 />
                 <button className="loginBtn" type="submit">Login</button>
+                {error && <span className="failure">Invalid email or password</span>}
             </form>
+            <CancelIcon className="loginCancel" onClick={() => { setShowLogin(false) }}></CancelIcon>
         </div>
     );
 }

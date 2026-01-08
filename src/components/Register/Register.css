@@ -1,4 +1,4 @@
-.loginContainer {
+.registerContainer {
     width: 300px;
     height: auto;
     padding: 20px;
@@ -22,7 +22,7 @@
     font-weight: 700;
 }
 
-.loginBtn {
+.registerBtn {
     border: none;
     padding: 5px;
     background-color: teal;
@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-.loginCancel {
+.registerCancel {
     position: absolute;
     top: 3px;
     right: 3px;
