@@ -11,24 +11,28 @@ function Register({ setShowRegister }: any) {
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
 
-    const usernameRef: any = useRef();
-    const emailRef: any = useRef();
-    const passwordRef: any = useRef();
-    const confirmPasswordRef: any = useRef();
+    const usernameRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
+    const confirmPasswordRef = useRef<HTMLInputElement>(null);
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const newUser = {
-            username: usernameRef.current ? usernameRef.current.value : '',
-            email: emailRef.current ? emailRef.current.value : '',
-            password: passwordRef.current ? passwordRef.current.value : '',
-            confirmPassword: confirmPasswordRef.current ? confirmPasswordRef.current.value : ''
+            username: usernameRef.current?.value || '',
+            email: emailRef.current?.value || '',
+            password: passwordRef.current?.value || '',
+            confirmPassword: confirmPasswordRef.current?.value || ''
         }
         console.log(newUser);
         try {
             const res = await axios.post("/api/users/register", newUser);
             console.log(res);
+            setShowRegister(null);
+            setError(false);
+            setSuccess(true);
         } catch (error) {
             console.log(error);
+            setError(false);
         }
     }
 

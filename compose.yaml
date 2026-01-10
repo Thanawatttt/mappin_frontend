@@ -1,0 +1,15 @@
+services:
+  mappin-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mappin-frontend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - mappin-network
+
+networks:
+  mappin-network:
+    driver: bridge

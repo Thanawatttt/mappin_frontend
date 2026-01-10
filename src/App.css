@@ -11,7 +11,7 @@
     position: relative;
 }
 
-/* Login/Logout Buttons - Minimal positioning only */
+
 .button.logout,
 .buttons {
     position: absolute;
@@ -23,4 +23,100 @@
 .buttons {
     display: flex;
     gap: 10px;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+label {
+    width: max-content;
+    color: tomato;
+    font-size: 13px;
+    border-bottom: 0.5px sold tomato;
+    margin: 3px 0;
+}
+
+.dsec {
+    font-size: 14px;
+}
+
+.star {
+    font-size: 24px;
+    color: yellow;
+}
+
+.username {
+    font-size: 14px;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.form {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: gray;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px sold grey;
+
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: gray;
+    font-size: 12px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: none;
+    border-bottom: 1px sold grey;
+}
+
+.submitButton {
+    border: none;
+    background-color: tomato;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Button styling */
+.button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button.logout {
+    background-color: red;
+}
+
+.button.login {
+    background-color: greenyellow;
+}
+
+.button.register {
+    background-color: aquamarine;
 }

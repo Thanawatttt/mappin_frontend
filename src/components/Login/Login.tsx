@@ -7,15 +7,15 @@ import "./Login.css"
 function Login({ setShowLogin }: any) {
     const [error, setError] = useState(false);
 
-    const emailRef = useRef();
-    const passwordRef = useRef();
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const user = {
-            email: emailRef.current ? emailRef.current.value : "",
-            password: passwordRef.current ? passwordRef.current.value : ""
+            email: emailRef.current?.value || "",
+            password: passwordRef.current?.value || ""
         };
         console.log(user);
         try {
@@ -23,8 +23,10 @@ function Login({ setShowLogin }: any) {
             localStorage.setItem('email', user.email);
             localStorage.setItem('token', res.data.token);
             console.log(res);
+            setShowLogin(false);
         } catch (error) {
             console.log(error);
+            setError(true);
         }
     };
 
