@@ -41,13 +41,23 @@ label {
     margin: 3px 0;
 }
 
-.dsec {
+.desc {
     font-size: 14px;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.stars svg {
+    color: gold;
+    font-size: 18px;
 }
 
 .star {
     font-size: 24px;
-    color: yellow;
+    color: gold;
 }
 
 .username {

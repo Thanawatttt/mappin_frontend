@@ -142,12 +142,15 @@ function App() {
                   <h4 className='desc'>{p.desc}</h4>
                   <label>Rating</label>
                   <div className='stars'>
-                    {+ p.rating > 0 && <StarRateIcon />}
-                    {+ p.rating > 1 && <StarRateIcon />}
-                    {+ p.rating > 2 && <StarRateIcon />}
-                    {+ p.rating > 3 && <StarRateIcon />}
-                    {+ p.rating > 4 && <StarRateIcon />}
-
+                    {Array.from({ length: 5 }, (_, i) => i + 1).map((star) => (
+                      <StarRateIcon
+                        key={star}
+                        style={{
+                          color: star <= Number(p.rating) ? 'gold' : '#ddd',
+                          fontSize: '20px'
+                        }}
+                      />
+                    ))}
                   </div>
                   <label>Information</label>
                   <span className='username'>Created By <b>{p.createdBy}</b></span>
