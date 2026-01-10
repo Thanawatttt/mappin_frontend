@@ -3,6 +3,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css';
 import axios from "axios";
+import { API_BASE_URL } from "./config.js";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import PlaceIcon from '@mui/icons-material/Place';
@@ -29,7 +30,7 @@ function App() {
 
   const getPins = async () => {
     try {
-      const res = await axios.get("/api/pins/all");
+      const res = await axios.get(`${API_BASE_URL}/api/pins/all`);
       console.log(res.data);
       setPins(res.data.items);
     } catch (error) {
@@ -61,7 +62,7 @@ function App() {
     console.log(newPin);
 
     try {
-      const res = await axios.post("/api/pins/", {
+      const res = await axios.post(`${API_BASE_URL}/api/pins/`, {
         title,
         desc,
         rating: parseInt(rating),

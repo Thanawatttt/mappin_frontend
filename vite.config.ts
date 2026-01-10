@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://api.map.meo.pp.ua/',
+        target: 'https://api.map.meo.pp.ua',
         changeOrigin: true,
       },
     },

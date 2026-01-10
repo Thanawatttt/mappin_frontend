@@ -4,6 +4,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 import axios from "axios";
+import { API_BASE_URL } from "../../config.js";
 import "./Register.css"
 
 
@@ -25,7 +26,7 @@ function Register({ setShowRegister }: any) {
         }
         console.log(newUser);
         try {
-            const res = await axios.post("/api/users/register", newUser);
+            const res = await axios.post(`${API_BASE_URL}/api/users/register`, newUser);
             console.log(res);
             setShowRegister(null);
             setError(false);

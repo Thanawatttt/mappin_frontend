@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import LoginIcon from '@mui/icons-material/Login';
 import CancelIcon from '@mui/icons-material/Cancel';
 import axios from "axios";
+import { API_BASE_URL } from "../../config.js";
 import "./Login.css"
 
 function Login({ setShowLogin }: any) {
@@ -19,7 +20,7 @@ function Login({ setShowLogin }: any) {
         };
         console.log(user);
         try {
-            const res = await axios.post("/api/users/login", user);
+            const res = await axios.post(`${API_BASE_URL}/api/users/login`, user);
             localStorage.setItem('email', user.email);
             localStorage.setItem('token', res.data.token);
             console.log(res);
